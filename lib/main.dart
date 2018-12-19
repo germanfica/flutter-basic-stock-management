@@ -34,7 +34,10 @@ class _MyHomePageState extends State<MyHomePage> {
     
     // Put [] and then {"name": "John Smith", "email": "john@example.com"}
     //var user = json.decode('[{"name": "John Smith", "email": "john@example.com"}]');
-    Map<String, dynamic> user = json.decode('{"name": "John Smith", "email": "john@example.com"}');
+    //Map<String, dynamic> user = json.decode('{"name": "John Smith", "email": "john@example.com"}');
+    User myFirstUser = new User("John Smith", "johny@example.co.uk");
+    String myJson = json.encode(myFirstUser);
+    Map<String, dynamic> user = json.decode(myJson);
 
     return Scaffold(
         appBar: AppBar(
@@ -45,4 +48,21 @@ class _MyHomePageState extends State<MyHomePage> {
           style: Theme.of(context).textTheme.display1,
         ));
   }
+}
+
+class User {
+  final String name;
+  final String email;
+
+  User(this.name, this.email);
+
+  User.fromJson(Map<String, dynamic> json)
+      : name = json['name'],
+        email = json['email'];
+
+  Map<String, dynamic> toJson() =>
+    {
+      'name': name,
+      'email': email,
+    };
 }
