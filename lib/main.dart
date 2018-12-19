@@ -76,6 +76,9 @@ class _MyHomePageState extends State<MyHomePage> {
      * Después otro archivo para tener ciertos datos de manera offline.
      * 
      * Hay que decidir qué datos se requieren para uso offline.
+     * 
+     * PREGUNTAS:
+     * Se requiere un buscador? O simplemente una lista. Es necesario?
      */
 
     return Scaffold(
